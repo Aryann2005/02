@@ -14,9 +14,9 @@
             height: 100vh;
             background-color: pink;
             font-family: 'Calibre', sans-serif;
+            overflow: hidden;
             flex-direction: column;
             position: relative;
-            overflow: hidden; /* Prevents unwanted scrolling */
         }
 
         .container {
@@ -44,9 +44,11 @@
             font-weight: bold;
             color: gold;
             text-shadow: 3px 3px 5px red;
+            position: absolute;
+            top: 10%;
+            width: 100%;
             text-align: center;
             font-family: 'Calibre', sans-serif;
-            margin-top: -50px;
             opacity: 0;
             animation: bounceIn 1s ease-in-out forwards;
         }
@@ -80,7 +82,7 @@
         /* Letter */
         .letter {
             width: 260px;
-            max-height: 400px;
+            height: 0;
             background: #f7e5b9;
             position: absolute;
             top: 0;
@@ -95,12 +97,6 @@
             font-weight: bold;
             text-transform: uppercase;
             color: #ff69b4;
-            scrollbar-width: none; /* Hide scrollbar */
-            -ms-overflow-style: none;
-        }
-
-        .letter::-webkit-scrollbar {
-            display: none; /* Hide scrollbar for Chrome */
         }
 
         .letter.open {
@@ -135,13 +131,12 @@
     </style>
 </head>
 <body>
-    <div class="valentine-text hidden" id="valentineText">
-        HAPPY VALENTINE'S DAY  
-        <span>MY LOVIEE CUTIE PARTNER</span>
-    </div>
-
     <div class="container">
         <button id="openBtn">Open 💌</button>
+        <div class="valentine-text hidden" id="valentineText">
+            HAPPY VALENTINE'S DAY  
+            <span>MY LOVIEE CUTIE PARTNER</span>
+        </div>
 
         <div class="envelope hidden" id="envelope">
             <div class="letter" id="letter">
@@ -196,9 +191,7 @@
 
 PATA HAI, DUNIYA KITNI BHI BADAL JAAYE, MERE LIYE EK CHEEZ HAMESHA SAME RAHEGI—TU. TERI WOH HASI JO DIN BANA DETI HAI, TERA GUSSA JO MUJHE AUR BHI SPECIAL FEEL KARWATA HAI, AUR TERA WOH BINA WAJAH OVERTHINK KARNA JO MUJHE HAMESHA TERE AUR KAREEB LE AATA HAI. 😄❤️
 
-TERE BINA BHI LIFE CHALTI RAHEGI, PAR TERE SAATH CHALNE KA JO SUKOON HAI, WO KAHIN AUR NAHI MILEGA. TU MERE LIYE BAS EK NAAM YA EHSAAS NAHI, MERI ZINDAGI KA SABSE KHOOBSURAT HISSA HAI. 💖
-
-HAPPY VALENTINE’S DAY, MERI OVERTHINKING QUEEN! 💘 TU BAS AISE HI MERI DUNIYA KA BEST PART BANI RAHE😘`;
+MAIN JAANTA HOON, KABHI TERE MANN MEIN AJEEB AJEEB SAWAAL AATE HAIN, KABHI MOOD SWINGS HOTI HAIN, PAR EK CHEEZ PAKKI HAI—MAIN YAHIN HOON, HAMESHA. HAATH PAKDA HAI TOH KABHI CHHODUNGA NAHI. 💞`;
 
                     let j = 0;
                     let speed = 50;
@@ -207,9 +200,20 @@ HAPPY VALENTINE’S DAY, MERI OVERTHINKING QUEEN! 💘 TU BAS AISE HI MERI DUNIY
                     function typeWriter() {
                         if (j < message.length) {
                             letterText.innerHTML += message.charAt(j);
-                            letterText.scrollTop = letterText.scrollHeight; // Auto-scroll Fix for Mobile
+                            letterText.scrollTop = letterText.scrollHeight;
                             j++;
                             setTimeout(typeWriter, speed);
+                        } else {
+                            setTimeout(() => {
+                                letter.classList.remove("open");
+                                envelope.classList.remove("open");
+
+                                setTimeout(() => {
+                                    let stamp = document.querySelector(".stamp");
+                                    stamp.style.opacity = "1";
+                                    stamp.classList.remove("hidden");
+                                }, 2000);
+                            }, 3000);
                         }
                     }
 
