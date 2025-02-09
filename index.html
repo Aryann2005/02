@@ -38,19 +38,25 @@
             display: none;
         }
 
-        /* Valentine Text Typing */
+        /* Valentine Heading */
         .valentine-text {
             font-size: 28px;
             font-weight: bold;
             color: gold;
             text-shadow: 3px 3px 5px red;
             position: absolute;
-            top: 15%;
-            text-align: center;
+            top: 10%;
             width: 100%;
+            text-align: center;
             font-family: 'Calibre', sans-serif;
             opacity: 0;
             animation: bounceIn 1s ease-in-out forwards;
+        }
+
+        .valentine-text span {
+            display: block;
+            font-size: 22px;
+            margin-top: 5px;
         }
 
         @keyframes bounceIn {
@@ -88,6 +94,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             font-size: 14px;
             line-height: 1.6;
+            font-weight: bold;
             text-transform: uppercase;
             color: #ff69b4; /* Baby Pink */
         }
@@ -127,7 +134,8 @@
     <div class="container">
         <button id="openBtn">Open 💌</button>
         <div class="valentine-text hidden" id="valentineText">
-            HAPPY VALENTINE'S DAY💖 MY <br> LOVIEE CUTIEE PARTNER
+            HAPPY VALENTINE'S DAY  
+            <span>MY LOVIEE CUTIE PARTNER</span>
         </div>
 
         <div class="envelope hidden" id="envelope">
@@ -160,11 +168,11 @@
         document.getElementById("openBtn").addEventListener("click", function() {
             this.style.display = "none"; 
 
-            // Start Music Fix
+            // Start Music
             music.volume = 0.8; 
             music.play();
 
-            // Show Heading with Animation
+            // Show Heading
             let valentineText = document.getElementById("valentineText");
             valentineText.classList.remove("hidden");
 
@@ -179,15 +187,15 @@
                 setTimeout(() => {
                     letter.classList.add("open");
 
-                    let message = `Suno Ayushi," ❤️
+                    let message = `SUNO AYUSHI," ❤️
 
-Pata hai, duniya kitni bhi badal jaaye, mere liye ek cheez hamesha same rahegi—tu. Teri woh hasi jo din bana deti hai, tera gussa jo mujhe aur bhi special feel karwata hai, aur tera woh bina wajah overthink karna jo mujhe hamesha tere aur kareeb le aata hai. 😄❤️
+PATA HAI, DUNIYA KITNI BHI BADAL JAAYE, MERE LIYE EK CHEEZ HAMESHA SAME RAHEGI—TU. TERI WOH HASI JO DIN BANA DETI HAI, TERA GUSSA JO MUJHE AUR BHI SPECIAL FEEL KARWATA HAI, AUR TERA WOH BINA WAJAH OVERTHINK KARNA JO MUJHE HAMESHA TERE AUR KAREEB LE AATA HAI. 😄❤️
 
-Main jaanta hoon, kabhi tere mann mein ajeeb ajeeb sawaal aate hain, kabhi mood swings hoti hain, par ek cheez pakki hai—main yahin hoon, hamesha. Haath pakda hai toh kabhi chhodunga nahi, I wish ki yeh grip dono taraf se strong rahe 🤞✨, kyunki rishte ek doosre ke saath se hi chalte hain, sirf ek ke efforts se nahi. 💞
+MAIN JAANTA HOON, KABHI TERE MANN MEIN AJEEB AJEEB SAWAAL AATE HAIN, KABHI MOOD SWINGS HOTI HAIN, PAR EK CHEEZ PAKKI HAI—MAIN YAHIN HOON, HAMESHA. HAATH PAKDA HAI TOH KABHI CHHODUNGA NAHI, I WISH KI YEH GRIP DONO TARAF SE STRONG RAHE 🤞✨, KYUNKI RISHTE EK DOOSRE KE SAATH SE HI CHALTE HAIN, SIRF EK KE EFFORTS SE NAHI. 💞
 
-Tere bina bhi life chalti rahegi, par tere saath chalne ka jo sukoon hai, wo kahin aur nahi milega. Tu mere liye bas ek naam ya ehsaas nahi, meri zindagi ka sabse khoobsurat hissa hai. 💖
+TERE BINA BHI LIFE CHALTI RAHEGI, PAR TERE SAATH CHALNE KA JO SUKOON HAI, WO KAHIN AUR NAHI MILEGA. TU MERE LIYE BAS EK NAAM YA EHSAAS NAHI, MERI ZINDAGI KA SABSE KHOOBSURAT HISSA HAI. 💖
 
-Happy Valentine’s Day, meri overthinking queen! 💘 Tu bas aise hi meri duniya ka best part bani reh. 😘`;
+HAPPY VALENTINE’S DAY, MERI OVERTHINKING QUEEN! 💘 TU BAS AISE HI MERI DUNIYA KA BEST PART BANI REH. 😘`;
 
                     let j = 0;
                     let speed = 50;
